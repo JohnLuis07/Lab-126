@@ -1,0 +1,53 @@
+#datetime {
+    text-align: center;
+    font-size: 48px;
+}
+
+#student-form {
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.inp {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+
+#age {
+    margin-top: 10px;
+    margin-left: 11px;
+}
+
+#email {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.choice {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#submit {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#searchId {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#display {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+#result {
+    margin-left: 20px;
+}
+
+#display-list {
+    margin-top: 10px;
+    margin-left: 20px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lab 5</title>
+        <link rel="stylesheet" href="lab5.css">
+    </head>
+    <body>
+        <div id="datetime">
+        <script src="lab5.js"></script>
+        </div>
+        <div>
+            <form id="student-form">
+                <label for="name" class="inp">Name:</label>
+                <input type="text" id="name" name="name"><br>
+            
+                <label for="age" class="inp">Age:</label>
+                <input type="number" id="age" name="age"><br>
+            
+                <label for="email" class="inp">Email:</label>
+                <input type="email" id="email" name="email"><br>
+            
+                <label class="inp">Course:</label><br>
+                <input type="radio" class="choice" name="course" value="Applied Mathematics">
+                <label for="cs">Applied Mathematics</label><br>
+            
+                <input type="radio" class="choice" name="course" value="Computer Science">
+                <label for="it">Computer Science</label><br>
+            
+                <input type="radio" class="choice" name="course" value="Statistics">
+                <label for="ce">Statistics</label><br>
+            
+                <input type="radio" class="choice" name="course" value="Physics">
+                <label for="se">Physics</label><br>
+            
+                <button type="button" onclick="add_student()" id="submit">Submit</button>
+                </form>
+
+                <input type="text" id="searchId" name="searchId">
+                <button type="button" onclick="findStudent()">Search ID</button>
+                <br>
+                <div id="find-student"></div>
+                
+                <button onclick="display_list()" id="display">Display All</button>
+                <p id="result">Result:</p>
+                <div id="display-list"></div>
+
+                
+        </div>
+
+    </body>
+</html>
