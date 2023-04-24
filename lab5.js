@@ -1,4 +1,3 @@
-
 function time_now() {
     var today = new Date();
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -8,8 +7,6 @@ function time_now() {
 
     document.getElementById("current-date-time").innerHTML = "Today is " + date + "<br>" + "The current time is " + time;
 }
-
-time_now();
 
 
 function Student (name, age, email, course) {
@@ -29,7 +26,7 @@ function add_student() {
     let course = document.querySelector('input[name="course"]:checked').value;
 
     // required fields
-    if (name.trim() === "" || age.trim() === "" || email.trim() === "") {
+    if (name.trim() === "" || name === null || age.trim() === "" || age === null || email.trim() === "" || email === null || course === null) {
         alert("Please fill in all required fields.");
         return;
     }
@@ -66,7 +63,7 @@ function findStudent() {
 
     // display student info
     if (student) {
-        document.getElementById("find-student").innerHTML = "Name: " + student.name + "<br>" + "Age: " + student.age + "<br>" + "Email: " + student.email + "<br>" + "Course: " + student.course;
+        document.getElementById("find-student").innerHTML = "Student_ID: " + student.Student_ID + "<br>" + "Name: " + student.name + "<br>" + "Age: " + student.age + "<br>" + "Email: " + student.email + "<br>" + "Course: " + student.course;
     } else {                    
         alert("Unable to find the student with that ID.");
     }
