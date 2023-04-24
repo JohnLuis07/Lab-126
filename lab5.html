@@ -7,9 +7,11 @@
         <link rel="stylesheet" href="lab5.css">
     </head>
     <body>
-        <div id="datetime">
-        <script src="lab5.js"></script>
+        
+        <div id="current-date-time">
+        <script src="lab5.js"></script>  
         </div>
+
         <div>
             <form id="student-form">
                 <label for="name" class="inp">Name:</label>
@@ -23,27 +25,27 @@
             
                 <label class="inp">Course:</label><br>
                 <input type="radio" class="choice" name="course" value="Applied Mathematics">
-                <label for="cs">Applied Mathematics</label><br>
+                <label for="Appmath">Applied Mathematics</label><br>
             
                 <input type="radio" class="choice" name="course" value="Computer Science">
-                <label for="it">Computer Science</label><br>
+                <label for="Komsai">Computer Science</label><br>
             
                 <input type="radio" class="choice" name="course" value="Statistics">
-                <label for="ce">Statistics</label><br>
+                <label for="Stats">Statistics</label><br>
             
                 <input type="radio" class="choice" name="course" value="Physics">
-                <label for="se">Physics</label><br>
+                <label for="P6">Physics</label><br>
             
                 <button type="button" onclick="add_student()" id="submit">Submit</button>
                 </form>
 
                 <input type="text" id="searchId" name="searchId">
                 <button type="button" onclick="findStudent()">Search ID</button>
-                <br>
+                <p class="result">Result:</p>
                 <div id="find-student"></div>
                 
                 <button onclick="display_list()" id="display">Display All</button>
-                <p id="result">Result:</p>
+                <p class="result">Result:</p>
                 <div id="display-list"></div>
 
                 

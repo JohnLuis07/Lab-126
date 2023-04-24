@@ -1,4 +1,4 @@
-#datetime {
+#current-date-time {
     text-align: center;
     font-size: 48px;
 }
@@ -12,6 +12,7 @@
     margin-top: 10px;
     padding-left: 20px;
 }
+
 
 
 #age {
@@ -39,11 +40,17 @@
     margin-left: 20px;
 }
 
+#find-student {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
 #display {
     margin-top: 10px;
     margin-left: 20px;
 }
-#result {
+.result {
+    font-weight: bold;
     margin-left: 20px;
 }
 
