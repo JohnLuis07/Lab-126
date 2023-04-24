@@ -46,6 +46,7 @@ function add_student() {
         return;
     }
 
+    // 
     let student = new Student(name, age, email, course);
 
     students.push(student);
@@ -65,8 +66,8 @@ function findStudent() {
 
     // display student info
     if (student) {
-        document.getElementById("find-student").innerHTML = `Name: ${student.name}<br>Age: ${student.age}<br>Email: ${student.email}<br>Course: ${student.course}`;
-    } else {
+        document.getElementById("find-student").innerHTML = "Name: " + student.name + "<br>" + "Age: " + student.age + "<br>" + "Email: " + student.email + "<br>" + "Course: " + student.course;
+    } else {                    
         alert("Unable to find the student with that ID.");
     }
 }
@@ -82,7 +83,7 @@ function display_list() {
     // display each student's info
     let display = "";
     for (let i = 0; i < students.length; i++) {
-        display += `Student_ID: ${students[i].Student_ID}<br>Name: ${students[i].name}<br>Age: ${students[i].age}<br>Email: ${students[i].email}<br>Course: ${students[i].course}<br><br>`;
+        display += "Student_ID: " + students[i].Student_ID + "<br>" + "Name: " + students[i].name + "<br>" + "Age: " + students[i].age + "<br>" + "Email: " + students[i].email + "<br>" + "Course: " + students[i].course + "<br><br>";
     }
 
     document.getElementById("display-list").innerHTML = display;
