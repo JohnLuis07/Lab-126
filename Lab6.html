@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Pokedex</title>
+    <style>
+        body {
+            background-image: url('pic.png');
+        }
+
+        #title {
+            background-color: red;
+            height: 100px;
+            margin-top: -40px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 75px;
+        }
+
+        /*moves the input to center*/
+        #inp_poke {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+        label, input, button {
+            font-size: 20px;
+            font-weight: bolder;
+            margin-top: 10px;
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #contain {
+            margin-top: 60px;
+            border-radius: 10px;
+            background-color: lightcoral;
+            padding: 20px;
+            width: 200px;
+        }
+
+        #contain_search {
+            margin-top: 60px;
+            border-radius: 10px;
+            background-color: lightcoral;
+            padding: 20px;
+            width: 200px;
+            top: 50%;
+            left: 42%;
+            position: relative;
+        }
+
+        #contain img, #contain_search img {
+            display: block;
+            margin: auto;
+            height: 150px;
+            width: 150px;
+        }
+
+        #contain h2, #contain_search h2{
+            font-size: 24px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+
+        #contain p, #contain_search p{
+            font-size: 18px;
+            margin: 0 0 5px;
+            font-weight: bold;
+        }
+
+        #contain ul, #contain_search ul {
+            font-weight: bold;
+        }
+
+        #contain li, #contain_search li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">
+        <h1>FakePokedex</h1>
+    </div>
+
+    <div id="inp_poke">
+        <label for="poke_name">Enter a Pokemon name:</label>
+        <input type="text" id="poke_name">
+        <button onclick="getpoke_data()">Search</button>
+    </div>
+    <div>
+        
+    </div>
+    <div id="result"></div>
+    <div id="container"></div>
+
+    
+    <script>
+        // for default display of 151 pokemons
+
+
+        let pokemon_names = [];
+            for(let i = 1; i <= 151; i++) {
+            pokemon_names.push(i);
+        }
+        
+    
+        pokemon_names.forEach(pokemon_name => {
+        fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon_name)
+            // parse the result as JSON
+            .then(result => {
+                    return result.json();})
+
+            .then(data => {
+
+                // display the image, display the name, abilities, and types
+
+                const name = data.name;
+                const types = data.types;
+                const abilities = data.abilities;
+
+                const poke_data = `
+                <div id="contain">
+                    <img src="${data.sprites.other["official-artwork"].front_default}" alt="Pokemon Name"/>
+                    <h2>${name}</h2>
+                    <p>Type: ${types.map(type => type.type.name).join(', ')}</p>
+                    <p>Abilities:</p>
+                    <ul>
+                        ${abilities.map(ability => `<li>${ability.ability.name}</li>`).join('')}
+                    </ul>
+                </div>`;
+                // append the pokemon data to the container
+                document.getElementById("container").innerHTML += poke_data;
+            })
+        });
+
+        // for the search function
+
+        function getpoke_data() {
+            // Get the value from the input field
+            const pokemon_name = document.getElementById("poke_name").value.toLowerCase();
+
+            // get data from the API
+            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`)
+                .then(result => {
+                    return result.json();
+                })
+                .then(data => {
+                    // check if the pokemon was found
+
+                    // display the image, display the name, abilities, and types
+
+                    const name = data.name;
+                    const types = data.types;
+                    const abilities = data.abilities;
+
+                    const poke_data = `
+                        <div id="contain_search">
+                        <img src="${data.sprites.other["official-artwork"].front_default}" alt="Pokemon Name"/>
+                        <h2>${name}</h2>
+                        <p>Type: ${types.map(type => type.type.name).join(', ')}</p>
+                        <p>Abilities:</p>
+                        <ul>
+                            ${abilities.map(ability => `<li>${ability.ability.name}</li>`).join('')}
+                        </ul>
+                        </div>`;
+
+                    window.alert("Pokemon found!!");
+                    //display the pokemons on the page
+                    document.getElementById("result").innerHTML = poke_data;
+                    })
+
+
+                // if pokemon not found, display an error
+                .catch((error) => {
+                    window.alert("Invalid Pokemon, Please input a valid Pokemon!");
+                    document.getElementById("result").innerHTML = "";
+                    document.getElementById("poke_name").value = "";
+                });
+            
+        }
+    </script>
+
+</body>
+</html>
